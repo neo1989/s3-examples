@@ -1,0 +1,53 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "antd": "^1.10.0",
+    "babel": "5.3.1",
+    "babel-core": "^5.6.15",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "babelify": "^7.3.0",
+    "browserify": "~13.1.0",
+    "react": "~15.3.0",
+    "react-dom": "~15.3.0",
+    "react-redux": "^4.4.5",
+    "react-tools": "~0.13.3",
+    "reactify": "^1.1.1",
+    "redux": "^3.5.2",
+    "redux-form": "^5.3.1",
+    "redux-thunk": "^2.1.0",
+    "rimraf": "~2.5.4",
+    "uglify-js": "^2.7.3",
+    "watchify": "^3.7.0"
+  },
+  "scripts": {
+    "clean": "rimraf static/build/ && mkdir -p static/build/",
+    "prebuild": "browserify -vd -e static/src/index.js -o static/build/index.js",
+    "build": "uglifyjs static/build/index.js -o static/build/index.min.js",
+    "watch": "watchify -vd -e static/src/index.js -o static/build/index.js"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015",
+            "react"
+          ]
+        }
+      ]
+    ]
+  },
+  "author": "Neo1989",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1"
+  }
+}

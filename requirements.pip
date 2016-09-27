@@ -1,0 +1,4 @@
+Flask==0.11.1
+SQLAlchemy==1.0.14
+pycurl==7.43.0
+pyyaml==3.12
